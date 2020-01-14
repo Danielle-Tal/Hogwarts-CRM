@@ -1,0 +1,11 @@
+body{
+    display:block;
+    color: pink
+}
+label{
+    display: block;
+    padding:5px;
+}
+input{
+    margin: 10px;
+}

@@ -1,14 +1,17 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from students import StudentsData, Student
 from json import JSONEncoder
-from flask import jsonify
+from flask_cors import CORS
+
 app = Flask(__name__)
+CORS(app)
 
 students_data = StudentsData()
 
 
 class MyEncoder(JSONEncoder):
         def default(self, o):
+            print(o.__dict__)
             return o.__dict__
 
 
@@ -18,6 +21,7 @@ def handle_students():
         return get_students()
     if request.method == "POST":
         return new_student()
+
 
 def get_students():
     return jsonify(students=list(students_data.get_students().values()))
