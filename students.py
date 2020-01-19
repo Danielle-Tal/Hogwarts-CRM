@@ -46,5 +46,17 @@ class StudentsData:
     def update_student(self, student):
         self.students[student.studentid] = student
 
+    def amount_of_students_day(self):
+        values = {}
+        for student in self.students.values():
+            current_day = time.strftime("%d-%m-%y", time.strptime(student.creationtime))
+            if current_day in values:
+                values[current_day] = values.get(current_day) + 1
+            else:
+                values[current_day] = 1
+        return values
+
+
+
 
 

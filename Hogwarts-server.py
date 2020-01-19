@@ -37,6 +37,7 @@ def handle_student(studentid):
         return update_student()
 
 
+
 def get_student(studentid):
     return jsonify(students_data.get_student(studentid))
 
@@ -63,6 +64,11 @@ def update_student():
                       intrested_in_course=req_data["intrested_in_course"], creationtime=req_data["creationtime"])
     students_data.update_student(student)
     return get_student(student.studentid)
+
+
+@app.route('/students/statistics')
+def student_per_day():
+    return students_data.amount_of_students_day()
 
 
 if __name__ == '__main__':

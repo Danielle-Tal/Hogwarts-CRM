@@ -9,3 +9,12 @@ label{
 input{
     margin: 10px;
 }
+.level{
+    /* display: flex; */
+}
+.skill{
+    /* display: flex; */
+}
+.stats{
+    background-color: rgba(255, 228, 196, 0.7);
+}
